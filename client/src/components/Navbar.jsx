@@ -82,7 +82,7 @@ const Navbar = ({ onSearch }) => {
           {/* Desktop Search */}
           <form className="navbar__search" onSubmit={handleSearchSubmit}>
             <div className={`navbar__search-wrap ${isSearchFocused ? "navbar__search-wrap--focused" : ""}`}>
-              <svg className="navbar__search-icon" viewBox="0 0 24 24" fill="none">
+              <svg className="navbar__search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <circle cx="11" cy="11" r="8" stroke="#686b78" strokeWidth="2" />
                 <path d="M21 21l-4.35-4.35" stroke="#686b78" strokeWidth="2" strokeLinecap="round" />
               </svg>
@@ -208,7 +208,7 @@ const Navbar = ({ onSearch }) => {
           <div className="navbar__mobile-search">
             <form onSubmit={handleSearchSubmit}>
               <div className="navbar__search-wrap navbar__search-wrap--focused">
-                <svg className="navbar__search-icon" viewBox="0 0 24 24" fill="none">
+                <svg className="navbar__search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <circle cx="11" cy="11" r="8" stroke="#686b78" strokeWidth="2" />
                   <path d="M21 21l-4.35-4.35" stroke="#686b78" strokeWidth="2" strokeLinecap="round" />
                 </svg>
