@@ -2,92 +2,21 @@ import { useState, useRef } from "react";
 import RestaurantCard from "../components/RestaurantCard";
 
 // ─── Mock Data ────────────────────────────────────────────────────────────────
-// Images sourced from Swiggy's public CDN — same as the real Swiggy website
 const CATEGORIES = [
-  {
-    id: 1,
-    name: "Pizza",
-    tag: "Pizza",
-    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/01cf72e3e8d1c3e5e7f8e84f0fae0ece",
-  },
-  {
-    id: 2,
-    name: "Burger",
-    tag: "Burgers",
-    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/f44bc97d011361bc24b98e21ddc4f3d4",
-  },
-  {
-    id: 3,
-    name: "Biryani",
-    tag: "Biryani",
-    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/6853ed154894f57a5d5e3f29bffa3aa4",
-  },
-  {
-    id: 4,
-    name: "Chinese",
-    tag: "Chinese",
-    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/NI2OR2HB5ZMVAF5RSZKUUF25XQ",
-  },
-  {
-    id: 5,
-    name: "Sushi",
-    tag: "Sushi",
-    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/v1674029845/homepage/categoryIcon/Sushi.png",
-  },
-  {
-    id: 6,
-    name: "Rolls",
-    tag: "Rolls",
-    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/rng/md/ads/production/0094ea5a097de8af12a3463c7fb97d5c",
-  },
-  {
-    id: 7,
-    name: "Desserts",
-    tag: "Desserts",
-    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/rng/md/ads/production/bd0c0e34a45e7a7f9bf5d82e71d07f02",
-  },
-  {
-    id: 8,
-    name: "South Indian",
-    tag: "South Indian",
-    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/f44cc9f78e89afa70be412f0b3a2bdf9",
-  },
-  {
-    id: 9,
-    name: "North Indian",
-    tag: "North Indian",
-    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/DINING_CUISINE_IMAGEURL/NorthIndian_800x800.jpg",
-  },
-  {
-    id: 10,
-    name: "Thali",
-    tag: "Thali",
-    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/rng/md/ads/production/0094ea5a097de8af12a3463c7fb97d5c",
-  },
-  {
-    id: 11,
-    name: "Pasta",
-    tag: "Pasta",
-    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/v1674029845/homepage/categoryIcon/Pasta.png",
-  },
-  {
-    id: 12,
-    name: "Sandwich",
-    tag: "Sandwich",
-    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/dba4bb676e3fcb36e1a01b4ea0fe7f0c",
-  },
-  {
-    id: 13,
-    name: "Shake",
-    tag: "Shake",
-    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/v1674029845/homepage/categoryIcon/Shake.png",
-  },
-  {
-    id: 14,
-    name: "Healthy",
-    tag: "Healthy Food",
-    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/v1674029845/homepage/categoryIcon/HealthyFood.png",
-  },
+  { id: 1, name: "Pizza", emoji: "🍕", tag: "Pizza" },
+  { id: 2, name: "Burger", emoji: "🍔", tag: "Burgers" },
+  { id: 3, name: "Biryani", emoji: "🍚", tag: "Biryani" },
+  { id: 4, name: "Chinese", emoji: "🍜", tag: "Chinese" },
+  { id: 5, name: "Sushi", emoji: "🍣", tag: "Sushi" },
+  { id: 6, name: "Rolls", emoji: "🌯", tag: "Rolls" },
+  { id: 7, name: "Desserts", emoji: "🍰", tag: "Desserts" },
+  { id: 8, name: "South Indian", emoji: "🥘", tag: "South Indian" },
+  { id: 9, name: "North Indian", emoji: "🫕", tag: "North Indian" },
+  { id: 10, name: "Thali", emoji: "🍱", tag: "Thali" },
+  { id: 11, name: "Pasta", emoji: "🍝", tag: "Pasta" },
+  { id: 12, name: "Sandwich", emoji: "🥪", tag: "Sandwich" },
+  { id: 13, name: "Shake", emoji: "🥤", tag: "Shake" },
+  { id: 14, name: "Healthy", emoji: "🥗", tag: "Healthy Food" },
 ];
 
 const RESTAURANTS = [
@@ -340,21 +269,7 @@ const Home = ({ searchQuery = "" }) => {
                 onClick={() => handleCategoryClick(cat)}
                 aria-pressed={activeCategory?.id === cat.id}
               >
-                <div className="home__category-img-wrap">
-                  <img
-                    src={cat.img}
-                    alt={cat.name}
-                    className="home__category-img"
-                    onError={(e) => {
-                      // Fallback: hide broken image and show first letter
-                      e.target.style.display = "none";
-                      e.target.nextSibling.style.display = "flex";
-                    }}
-                  />
-                  <span className="home__category-img-fallback" style={{ display: "none" }}>
-                    {cat.name[0]}
-                  </span>
-                </div>
+                <div className="home__category-emoji">{cat.emoji}</div>
                 <span className="home__category-name">{cat.name}</span>
               </button>
             ))}
