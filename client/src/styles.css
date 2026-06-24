@@ -1,0 +1,88 @@
+:root {
+  color: #1a1a1a;
+  font-family: Inter, system-ui, sans-serif;
+  background: #f7f7f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, #root {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  background: #ff6f33;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a,
+.navbar button {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.text-button {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.restaurant-list,
+.menu-grid,
+.checkout-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.restaurant-card,
+.menu-item,
+.checkout-item {
+  background: white;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.button {
+  display: inline-flex;
+  padding: 0.85rem 1.1rem;
+  background: #ff6f33;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.checkout-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
